@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Logi3PLServer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MessageReceiver.war">
+      <element id="artifact" artifact-name="Logi3PLServer:war exploded" />
+    </root>
+  </artifact>
+</component>
