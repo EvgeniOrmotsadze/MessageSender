@@ -10,7 +10,7 @@ import java.util.concurrent.TimeoutException;
 
 public class RabbitMQConsumer implements Runnable{
 
-    private static final String EXCHANGE_NAME = "test";
+    private static final String EXCHANGE_NAME = "rabbit";
 
 
     public void run() {
@@ -29,11 +29,11 @@ public class RabbitMQConsumer implements Runnable{
                 public void handleDelivery(String consumerTag, Envelope envelope,
                                            AMQP.BasicProperties properties, byte[] body)
                         throws IOException {
-                    System.out.println(envelope.getDeliveryTag());
+                    System.out.println(envelope.toString());
                     String message = new String(body, "UTF-8");
                     MemoryCache memoryCache = MemoryCache.getInstance();
-                    memoryCache.putMessage(new Message(message));
-                    System.out.println(" [x] Received '" + message + "'");
+                    memoryCache.putMessage(new Message(message,envelope.getDeliveryTag() + ""));
+                    System.out.println("Received '" + message + "'");
                 }
             };
             channel.basicConsume(EXCHANGE_NAME, true, consumer);

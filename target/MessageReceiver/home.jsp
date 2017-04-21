@@ -12,11 +12,13 @@
 
       <table id="tb" class="tables" style="margin-top: 15px;">
           <tbody>
-          <th>Messages from android</th>
+          <th>Number</th>
+          <th>Text</th>
           </tbody>
           <% MemoryCache memoryCache = MemoryCache.getInstance();
              for(int i=0; i < memoryCache.getSize(); i++){%>
-                  <tr><td> <%=memoryCache.getMessage(i).getText()%> </td></tr>
+                  <tr><td> <%=memoryCache.getMessage(i).getMessageNumber() %> </td>
+                      <td> <%=memoryCache.getMessage(i).getText()%> </td></tr>
            <% } %>
           <tr></tr>
       </table>

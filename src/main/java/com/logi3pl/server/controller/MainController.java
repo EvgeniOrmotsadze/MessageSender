@@ -21,6 +21,7 @@ public class MainController extends HttpServlet{
             super();
         }
 
+        //when start application load  main page
         protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
             RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
             dispatcher.forward(request, response);

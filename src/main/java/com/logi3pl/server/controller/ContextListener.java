@@ -16,7 +16,7 @@ public class ContextListener implements ServletContextListener {
 
     public ContextListener() {}
 
-
+    //when initial java context first start RabbitConsumers for listen to publisher
     public void contextInitialized(ServletContextEvent servletContextEvent) {
         RabbitMQConsumer producer = new RabbitMQConsumer();
         new Thread(producer).start();
